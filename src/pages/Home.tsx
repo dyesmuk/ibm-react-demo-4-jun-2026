@@ -1,9 +1,6 @@
-// solution - useState 
 import { useState } from "react";
 const Home = () => {
-    // const [a, b] = useState();
     const [salary, setSalary] = useState(10.25);
-    // const [employee, setEmployee] = useState({});
     const increaseSalary = () => {
         console.log(salary);
         setSalary(salary * 2);
@@ -18,6 +15,28 @@ const Home = () => {
     );
 };
 export default Home;
+// // solution - useState
+
+
+// import { useState } from "react";
+// const Home = () => {
+//     // const [a, b] = useState();
+//     const [salary, setSalary] = useState(10.25);
+//     // const [employee, setEmployee] = useState({});
+//     const increaseSalary = () => {
+//         console.log(salary);
+//         setSalary(salary * 2);
+//     };
+//     return (
+//         <>
+//             <h1>Home Component</h1>
+//             <p>This is home component.</p>
+//             <h3>Salary: {salary}</h3>
+//             <button onClick={increaseSalary} >Increase Salary!</button>
+//         </>
+//     );
+// };
+// export default Home;
 
 
 // problem in rendering updated data -

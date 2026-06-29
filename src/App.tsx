@@ -1,5 +1,5 @@
-import Home from "./pages/Home";
-// import Login from "./pages/Login";
+// import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 const App = () => {
 
@@ -8,7 +8,8 @@ const App = () => {
       <h1>App Component (Parent)</h1>
       <p>This is app component.</p>
       <hr />
-      <Home></Home>
+      <Login />
+      {/* <Home></Home> */}
       {/* <Home />
       <Login /> */}
 
