@@ -1,17 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Login = () => {
 
     const [username, setUsername] = useState('');
 
-    const handleInput = (evt: any) => {
+    const handleInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
         console.log(`${evt.target.name}: ${evt.target.value}`);
         setUsername(evt.target.value);
     };
-    const submitInput = (evt) => {
+    const submitInput = (evt: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         evt.preventDefault(); // important 
-        setUsername('');
         alert(`${username} submitted!`);
+        setUsername('');
     };
 
     return (
