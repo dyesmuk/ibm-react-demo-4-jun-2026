@@ -6,8 +6,8 @@ const Parent = () => {
 
     return (<>
         <h1>Parent Component </h1>
-        <p>Parent data: {parentData}</p>
-        <Child />
+        <p>Parent data in parent: {parentData}</p>
+        <Child abc={parentData} />
     </>);
 };
 
