@@ -5,8 +5,7 @@ const Login = () => {
     const [username, setUsername] = useState('');
 
     const handleInput = (evt: any) => {
-        console.log(evt.target.value);
-        console.log(evt.target.name);
+        console.log(`${evt.target.name}: ${evt.target.value}`);
         setUsername(evt.target.value);
     };
     const submitInput = (evt) => {
