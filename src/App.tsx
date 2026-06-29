@@ -1,17 +1,72 @@
+import React from "react";
 
-function App() {
+// class component
+class App extends React.Component {
 
-  return (
-    <>
-      <h1>IBM React Demo</h1>
-      <hr />
-      <p>This is IBM ReactJS demo app.</p>
-      <p>git add . && git commit -m "initial commit" && git push</p>
-    </>
-  )
+  render() {
+    return (
+      <>
+        <h1>IBM React Demo</h1>
+        <p>This is IBM ReactJS demo app.</p>
+      </>
+    )
+  };
 }
-
 export default App;
+
+
+// // modern arrow function 
+// const App = () => {
+
+//   return (
+//     <>
+//       <h1>IBM React Demo</h1>
+//       <p>This is IBM ReactJS demo app.</p>
+//     </>
+//   )
+// }
+
+// export default App;
+
+
+// // modern arrow function 
+// const App = () => {
+//   // js code 
+
+//   return (
+//     <>
+//       <h1>IBM React Demo</h1>
+//       <>
+//         <p>this</p>
+//       </>
+//       <hr />
+//       <p>This is IBM ReactJS demo app.</p>
+//       <p>git add . && git commit -m "initial commit" && git push</p>
+//       <h3>Components in React</h3>
+//       <h4>Function Component</h4>
+//       <h4>Class Component</h4>
+//       <p></p>
+//     </>
+//   )
+// }
+
+// export default App;
+
+
+// original function 
+// function App() {
+
+//   return (
+//     <>
+//       <h1>IBM React Demo</h1>
+//       <hr />
+//       <p>This is IBM ReactJS demo app.</p>
+//       <p>git add . && git commit -m "initial commit" && git push</p>
+//     </>
+//   )
+// }
+
+// export default App;
 
 
 
