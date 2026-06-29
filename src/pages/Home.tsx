@@ -1,25 +1,67 @@
-
+// solution - useState 
+import { useState } from "react";
 const Home = () => {
-
-    const products = [
-        { title: 'Cabbage', id: 1 },
-        { title: 'Garlic', id: 2 },
-        { title: 'Apple', id: 3 },
-    ];
-    console.log(products);
-    const listItems = products.map(product =>
-        <li key={product.id}> {product.title} </li>
-    );
+    // const [a, b] = useState();
+    const [salary, setSalary] = useState(10.25);
+    // const [employee, setEmployee] = useState({});
+    const increaseSalary = () => {
+        console.log(salary);
+        setSalary(salary * 2);
+    };
     return (
         <>
             <h1>Home Component</h1>
             <p>This is home component.</p>
-            {/* <>{products} </> */}
-            <> {listItems} </>
+            <h3>Salary: {salary}</h3>
+            <button onClick={increaseSalary} >Increase Salary!</button>
         </>
     );
 };
 export default Home;
+
+
+// problem in rendering updated data -
+// const Home = () => {
+
+//     let salary: number = 10.25;
+
+//     const increaseSalary = () => {
+//         console.log(salary);
+//         salary = salary * 2;
+//     };
+
+//     return (
+//         <>
+//             <h1>Home Component</h1>
+//             <p>This is home component.</p>
+//             <h3>Salary: {salary}</h3>
+//             <button onClick={increaseSalary} >Increase Salary!</button>
+//         </>
+//     );
+// };
+// export default Home;
+
+// const Home = () => {
+
+//     const products = [
+//         { title: 'Cabbage', id: 1 },
+//         { title: 'Garlic', id: 2 },
+//         { title: 'Apple', id: 3 },
+//     ];
+//     console.log(products);
+//     const listItems = products.map(product =>
+//         <li key={product.id}> {product.title} </li>
+//     );
+//     return (
+//         <>
+//             <h1>Home Component</h1>
+//             <p>This is home component.</p>
+//             {/* <>{products} </> */}
+//             <> {listItems} </>
+//         </>
+//     );
+// };
+// export default Home;
 
 // import Login from "./Login";
 // import Register from "./Register";
