@@ -7,11 +7,8 @@ const Home = () => {
         { title: 'Apple', id: 3 },
     ];
     console.log(products);
-
     const listItems = products.map(product =>
-        <li key={product.id}>
-            {product.title}
-        </li>
+        <li key={product.id}> {product.title} </li>
     );
     return (
         <>
