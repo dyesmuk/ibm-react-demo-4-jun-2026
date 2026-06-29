@@ -1,10 +1,7 @@
 const Child = () => {
 
-    const parentData = 'Sonu';
-
     return (<>
-        <h1>Parent Component </h1>
-        <p>Parent data: {parentData}</p>
+        <h1>Child Component </h1>
     </>);
 };
 
