@@ -1,17 +1,54 @@
-const App = () => {
+import Home from "./pages/Home";
+// import Login from "./pages/Login";
 
-  const fun = () => { console.log('fun'); };
+const App = () => {
 
   return (
     <>
-      <h1>IBM React Demo</h1>
-      <p>This is IBM ReactJS demo app.</p>
-      <button onClick={fun}>Click</button>
+      <h1>App Component (Parent)</h1>
+      <p>This is app component.</p>
+      <hr />
+      <Home></Home>
+      {/* <Home />
+      <Login /> */}
+
     </>
   )
 }
 
 export default App;
+
+
+// const App = () => {
+
+//   const fun = () => { console.log('fun'); };
+
+//   return (
+//     <>
+//       <h1>IBM React Demo</h1>
+//       <p>This is IBM ReactJS demo app.</p>
+//       <button onClick={fun}>Click</button>
+//     </>
+//   )
+// }
+
+// export default App;
+
+
+// const App = () => {
+
+//   const fun = () => { console.log('fun'); };
+
+//   return (
+//     <>
+//       <h1>IBM React Demo</h1>
+//       <p>This is IBM ReactJS demo app.</p>
+//       <button onClick={fun}>Click</button>
+//     </>
+//   )
+// }
+
+// export default App;
 
 
 // import React from "react";
