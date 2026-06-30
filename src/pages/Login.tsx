@@ -41,7 +41,7 @@ const Login = () => {
             <h1>Login Component</h1>
             <p>This is login component.</p>
 
-            <form>
+            <form onSubmit={submitInput}>
                 <input
                     type="text"
                     name="username"
@@ -60,10 +60,8 @@ const Login = () => {
                     placeholder="Enter your password"
                 />
                 <br />
-
-                <input type="submit" onClick={submitInput} />
+                <input type="submit" value="Login" />
             </form>
-
             <p>{message}</p>
         </>
     );
