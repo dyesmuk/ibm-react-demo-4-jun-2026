@@ -60,7 +60,7 @@ const Login = () => {
                     placeholder="Enter your password"
                 />
                 <br />
-                <input type="submit" value="Login" />
+                {/* <input type="submit" value="Login" /> */}
                 <button type="submit">🔓Login</button>
                 {/* // button is preferred */}
             </form>

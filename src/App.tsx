@@ -1,6 +1,7 @@
 // import Home from "./pages/Home";
 import Login from "./pages/Login";
 // import Parent from "./pages/Parent";
+import './App.css'
 
 const App = () => {
 
