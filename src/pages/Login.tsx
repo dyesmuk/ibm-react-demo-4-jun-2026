@@ -61,6 +61,8 @@ const Login = () => {
                 />
                 <br />
                 <input type="submit" value="Login" />
+                <button type="submit">🔓Login</button>
+                {/* // button is preferred */}
             </form>
             <p>{message}</p>
         </>
