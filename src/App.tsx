@@ -1,17 +1,34 @@
-import './App.css'
+import './App.css';
 import AppRoutes from "./routes/appRoutes";
+import AuthProvider from './auth/AuthProvider';
 
 const App = () => {
 
+  // step 2 
   return (
     <>
-    {/* here  */}
-      <AppRoutes />
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </>
-  )
-}
+  );
+};
 
 export default App;
+// import './App.css'
+// import AppRoutes from "./routes/appRoutes";
+
+// const App = () => {
+
+//   return (
+//     <>
+//     {/* here  */}
+//       <AppRoutes />
+//     </>
+//   )
+// }
+
+// export default App;
 
 
 // // import Home from "./pages/Home";

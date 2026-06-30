@@ -1,8 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router"; // this 
+import AuthContext from "../context/AuthContextType";
 
+// step 4
 const Login = () => {
+
+    const { login } = useContext(AuthContext);
 
     const apiUrl: string = 'https://jsonplaceholder.typicode.com/users/?username=';
     const navigate = useNavigate(); // // this 
@@ -26,7 +30,8 @@ const Login = () => {
             if (response.data.length > 0 && response.data[0].username === user.username) {
                 setMessage('Login successful!');
                 console.log(response.data);
-                navigate('/home'); // this 
+                login(); // step 4 here 
+                navigate('/employees'); // this 
             } else {
                 setMessage('Invalid credentials.');
             }
