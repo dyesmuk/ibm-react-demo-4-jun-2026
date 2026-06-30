@@ -21,7 +21,7 @@ const Employee = () => {
         <>
             <h1>Employee Component</h1>
             <p>This is employee component.</p>
-            <p>{employee && (<>
+            <>{employee && (<>
                 <p>Id: {employee.id}</p>
                 <p>Name: {employee.name}</p>
                 <p>Username: {employee.username}</p>
@@ -37,7 +37,7 @@ const Employee = () => {
                 <p>Name: {employee.company.name}</p>
                 <p>Catch Phrase: {employee.company.catchPhrase}</p>
                 <p>Business: {employee.company.bs}</p>
-            </>)} </p>
+            </>)} </>
         </>
     );
 };
