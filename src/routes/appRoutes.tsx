@@ -4,11 +4,11 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
-// import Employees from "../pages/Employees";
 import NavBar from "../components/navBar";
 import Page404 from "../pages/Page404";
 import AuthContext from "../context/AuthContextType";
 import Parent from "../pages/Parent";
+import Employee from "../pages/Employee";
 
 const AppRoutes = () => {
 
@@ -25,7 +25,7 @@ const AppRoutes = () => {
                     element={isLoggedIn ? <Navigate to="/employees" replace /> : <Login />}
                 />
                 <Route
-                    path="/employees" element={isLoggedIn ? <Parent /> : <Navigate to="/login" replace />}
+                    path="/employees" element={isLoggedIn ? <Employee /> : <Navigate to="/login" replace />}
                 />
                 <Route
                     path="/parent" element={isLoggedIn ? <Parent /> : <Navigate to="/login" replace />}
