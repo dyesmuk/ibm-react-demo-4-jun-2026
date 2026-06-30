@@ -9,7 +9,7 @@ const Employee = () => {
         console.log('useEffect');
         axios.get('https://jsonplaceholder.typicode.com/users/2')
             .then((response: any) => {
-                console.log(response);
+                console.log(response.data);
                 setEmployee(response.data);
             })
             .catch(err => console.error(err));
