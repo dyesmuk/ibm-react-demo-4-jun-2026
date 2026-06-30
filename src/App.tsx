@@ -1,26 +1,42 @@
-// import Home from "./pages/Home";
-import Login from "./pages/Login";
-// import Parent from "./pages/Parent";
 import './App.css'
+import AppRoutes from "./routes/appRoutes";
 
 const App = () => {
 
   return (
     <>
-      <h1>App Component (Parent)</h1>
-      <p>This is app component.</p>
-      <hr />
-      {/* <Parent /> */}
-      <Login />
-      {/* <Home></Home> */}
-      {/* <Home />
-      <Login /> */}
-
+    {/* here  */}
+      <AppRoutes />
     </>
   )
 }
 
 export default App;
+
+
+// // import Home from "./pages/Home";
+// import Login from "./pages/Login";
+// // import Parent from "./pages/Parent";
+// import './App.css'
+
+// const App = () => {
+
+//   return (
+//     <>
+//       <h1>App Component (Parent)</h1>
+//       <p>This is app component.</p>
+//       <hr />
+//       {/* <Parent /> */}
+//       <Login />
+//       {/* <Home></Home> */}
+//       {/* <Home />
+//       <Login /> */}
+
+//     </>
+//   )
+// }
+
+// export default App;
 
 
 // const App = () => {
