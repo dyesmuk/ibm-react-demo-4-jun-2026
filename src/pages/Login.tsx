@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router"; // this 
 
 const Login = () => {
 
     const apiUrl: string = 'https://jsonplaceholder.typicode.com/users/?username=';
+    const navigate = useNavigate(); // // this 
 
     const [user, setUser] = useState({ username: '', password: '' });
 
@@ -24,6 +26,7 @@ const Login = () => {
             if (response.data.length > 0 && response.data[0].username === user.username) {
                 setMessage('Login successful!');
                 console.log(response.data);
+                navigate('/home'); // this 
             } else {
                 setMessage('Invalid credentials.');
             }
