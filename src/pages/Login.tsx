@@ -1,14 +1,15 @@
+import axios from "axios";
 import { useState } from "react";
 
 const Login = () => {
 
-    const apiUrl: string = 'https://jsonplaceholder.typicode.com/users/?username=Antonette';
+    const apiUrl: string = 'https://jsonplaceholder.typicode.com/users/?username=';
 
     const [user, setUser] = useState({ username: '', password: '' });
 
     const [message, setMessage] = useState('');
 
-    const handleInput = (evt) => {
+    const handleInput = (evt: any) => {
         const { name, value } = evt.target;
         setUser((prevUser) => ({
             ...prevUser,
@@ -16,37 +17,117 @@ const Login = () => {
         }));
     };
 
-    const submitInput = (evt) => {
-        evt.preventDefault(); // important 
-        // axios here 
-        // https://www.npmjs.com/package/axios 
-        if (user.username === 'sonu' && user.password === 'sonu') {
+    const submitInput = async (evt: any) => {
+        evt.preventDefault();
+        try {
+            const response: any = await axios.get(`${apiUrl}${user.username}`);
+            if (response.data.length > 0 && response.data[0].username === user.username) {
+                setMessage('Login successful!');
+                console.log(response.data);
+            } else {
+                setMessage('Invalid credentials.');
+            }
             setUser({ username: '', password: '' });
-            setMessage('Login successful!');
         }
-        else {
+        catch (error) {
             setUser({ username: '', password: '' });
             setMessage('Invalid credentials.');
+            console.error(error);
         }
     };
 
     return (
         <>
-            <h1>Login Component </h1>
+            <h1>Login Component</h1>
             <p>This is login component.</p>
+
             <form>
-                <input type="text" name="username" value={user.username} onChange={handleInput} autoFocus placeholder="Enter your username" />
+                <input
+                    type="text"
+                    name="username"
+                    value={user.username}
+                    onChange={handleInput}
+                    autoFocus
+                    placeholder="Enter your username"
+                />
                 <br />
-                <input type="password" name="password" value={user.password} onChange={handleInput} placeholder="Enter your username" />
+
+                <input
+                    type="password"
+                    name="password"
+                    value={user.password}
+                    onChange={handleInput}
+                    placeholder="Enter your password"
+                />
                 <br />
+
                 <input type="submit" onClick={submitInput} />
             </form>
 
-            <p>{message && message}</p>
+            <p>{message}</p>
         </>
     );
 };
+
 export default Login;
+
+// import axios from "axios";
+// import { useState } from "react";
+
+
+// const Login = () => {
+
+//     const apiUrl: string = 'https://jsonplaceholder.typicode.com/users/?username=';
+
+//     const [user, setUser] = useState({ username: '', password: '' });
+
+//     const [message, setMessage] = useState('');
+
+//     const handleInput = (evt) => {
+//         const { name, value } = evt.target;
+//         setUser((prevUser) => ({
+//             ...prevUser,
+//             [name]: value,
+//         }));
+//     };
+
+//     const submitInput = async (evt) => {
+//         evt.preventDefault();
+//         try {
+//             const response: any = await axios.get(`${apiUrl}${user.username}`);
+//             if (response.username === user.username) {
+//                 setUser({ username: '', password: '' });
+//                 setMessage('Login successful!');
+//                 console.log(response);
+//             }
+//         }
+//         catch (error) {
+//             setUser({ username: '', password: '' });
+//             setMessage('Invalid credentials.');
+//             console.error(error);
+//         }
+//     }
+
+//     return (
+//         <>
+//             <h1>Login Component </h1>
+//             <p>This is login component.</p>
+//             <form>
+//                 <input type="text" name="username" value={user.username} onChange={handleInput} autoFocus placeholder="Enter your username" />
+//                 <br />
+//                 <input type="password" name="password" value={user.password} onChange={handleInput} placeholder="Enter your username" />
+//                 <br />
+//                 <input type="submit" onClick={submitInput} />
+//             </form>
+
+//             <p>{message && message}</p>
+//         </>
+//     );
+// };
+// export default Login;
+
+
+
 
 // import { useState } from "react";
 
