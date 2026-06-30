@@ -1,14 +1,13 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router"; // this 
 import AuthContext from "../context/AuthContextType";
-
+import { loginUser } from '../services/user.service';
 console.log('5. context called to login');
+
 const Login = () => {
 
     const { login } = useContext(AuthContext);
 
-    const apiUrl: string = 'https://jsonplaceholder.typicode.com/users/?username=';
     const navigate = useNavigate(); // // this 
 
     const [user, setUser] = useState({ username: '', password: '' });
@@ -24,9 +23,12 @@ const Login = () => {
     };
 
     const submitInput = async (evt: any) => {
+        console.log('submitInput');
         evt.preventDefault();
         try {
-            const response: any = await axios.get(`${apiUrl}${user.username}`);
+            console.log('trying');
+            const response: any = await loginUser(user.username);
+            console.log(response);
             if (response.data.length > 0 && response.data[0].username === user.username) {
                 setMessage('Login successful!');
                 console.log(response.data);
