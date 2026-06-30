@@ -27,6 +27,9 @@ const AppRoutes = () => {
                 <Route
                     path="/employees" element={isLoggedIn ? <Parent /> : <Navigate to="/login" replace />}
                 />
+                <Route
+                    path="/parent" element={isLoggedIn ? <Parent /> : <Navigate to="/login" replace />}
+                />
                 <Route path="*" element={<Page404 />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
