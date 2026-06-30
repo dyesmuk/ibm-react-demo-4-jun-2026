@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router";
 import AuthContext from "../context/AuthContextType";
 
-//step 6
+console.log('6. context called to navbar.');
 const NavBar = () => {
 
     const { isLoggedIn } = useContext(AuthContext);

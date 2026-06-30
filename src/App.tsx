@@ -4,7 +4,7 @@ import AuthProvider from './auth/AuthProvider';
 
 const App = () => {
 
-  // step 2 
+  console.log('2. context provided to app component');
   return (
     <>
       <AuthProvider>

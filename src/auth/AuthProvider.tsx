@@ -7,6 +7,8 @@ const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const login = () => setIsLoggedIn(true);
 
+    console.log('3 auth context implemented.');
+
     return (
         <AuthContext.Provider value={{ isLoggedIn, login }} >
             {children}

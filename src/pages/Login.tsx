@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router"; // this 
 import AuthContext from "../context/AuthContextType";
 
-// step 4
+console.log('5. context called to login');
 const Login = () => {
 
     const { login } = useContext(AuthContext);

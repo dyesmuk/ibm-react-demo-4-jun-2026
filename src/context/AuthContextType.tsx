@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-// step 1 
+console.log('1. auth context created');
 const AuthContext = createContext<any>({
     isLoggedIn: false,
     login: () => { }
