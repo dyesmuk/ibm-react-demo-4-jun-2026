@@ -1,6 +1,6 @@
 // import Home from "./pages/Home";
-// import Login from "./pages/Login";
-import Parent from "./pages/Parent";
+import Login from "./pages/Login";
+// import Parent from "./pages/Parent";
 
 const App = () => {
 
@@ -9,8 +9,8 @@ const App = () => {
       <h1>App Component (Parent)</h1>
       <p>This is app component.</p>
       <hr />
-      <Parent />
-      {/* <Login /> */}
+      {/* <Parent /> */}
+      <Login />
       {/* <Home></Home> */}
       {/* <Home />
       <Login /> */}
