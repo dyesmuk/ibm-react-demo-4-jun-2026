@@ -16,11 +16,15 @@ const Employee = () => {
     console.log(dataFromStore);
 
     const [employee, setEmployee] = useState<EmployeeType>();
-    const userId: number = Math.floor(Math.random() * 10) + 1;
+    // const userId: number = Math.floor(Math.random() * 10) + 1;
+    const [employeeId, serEmployeeId] = useState('6a3c74fd111c607a29ce5e72');
+
+
 
     useEffect(() => {
         console.log('useEffect');
-        getEmployeeById(userId)
+        serEmployeeId('6a3c74fd111c607a29ce5e72');
+        getEmployeeById(employeeId)
             .then((response: any) => {
                 console.log(response.data);
                 setEmployee(response.data);
@@ -36,25 +40,15 @@ const Employee = () => {
             <p>This is employee component.</p>
             <>
                 <h3>Data from store</h3>
-                <p>{dataFromStore.id} {dataFromStore.name} </p>
+                <p>{dataFromStore.id} {dataFromStore.firstName} </p>
             </>
             <h3>Data</h3>
             <>{employee && (<>
                 <p>Id: {employee.id}</p>
-                <p>Name: {employee.name}</p>
-                <p>Username: {employee.username}</p>
+                <p>First Name: {employee.firstName}</p>
+                <p>last Name: {employee.lastName}</p>
                 <p>Email: {employee.email}</p>
-                <p>Phone: {employee.phone}</p>
-                <p>Website: {employee.website}</p>
-                <p>Street: {employee.address.street}</p>
-                <p>Suite: {employee.address.suite}</p>
-                <p>City: {employee.address.city}</p>
-                <p>Zipcode: {employee.address.zipcode}</p>
-                <p>Latitude: {employee.address.geo.lat}</p>
-                <p>Longitude: {employee.address.geo.lng}</p>
-                <p>Name: {employee.company.name}</p>
-                <p>Catch Phrase: {employee.company.catchPhrase}</p>
-                <p>Business: {employee.company.bs}</p>
+                <p>Salary: {employee.salary}</p>
             </>)} </>
         </>
     );

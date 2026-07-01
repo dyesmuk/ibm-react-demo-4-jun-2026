@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // slice = createSlice({name, intitalState, reducers});
 
-
 console.log('empSlice');
 
 const EmpSlice = createSlice(
@@ -10,8 +9,12 @@ const EmpSlice = createSlice(
         name: 'emp',
         initialState: {
             empData: {
-                id: 1,
-                name: 'Sonu'
+                id: '',
+                firstName: '',
+                lastName: '',
+                email: '',
+                salary: ''
+
             },
             allEmpData: []
         },

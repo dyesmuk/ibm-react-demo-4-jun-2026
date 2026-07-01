@@ -1,9 +1,9 @@
-import './App.css';
+// import './App.css';
 import AppRoutes from "./routes/appRoutes";
 import AuthProvider from './auth/AuthProvider';
 import store from './redux/store';
 import { Provider } from 'react-redux';
-
+// import './styles/styles.css';
 const App = () => {
 
   console.log('2. store provided to the app');
