@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { EmployeeType } from "../models/employee.model";
 import { getEmployeeById } from "../services/employee.service";
+
 import { useSelector, useDispatch } from 'react-redux'
 import { getEmpById } from '../redux/empSlice';
 import { type RootState } from '../redux/store';
@@ -8,7 +9,10 @@ import { type RootState } from '../redux/store';
 const Employee = () => {
 
     const dispatch = useDispatch();
+
+    // get data from store 
     const dataFromStore = useSelector((state: RootState) => { return state.emp.empData; });
+
     console.log(dataFromStore);
 
     const [employee, setEmployee] = useState<EmployeeType>();
@@ -20,6 +24,7 @@ const Employee = () => {
             .then((response: any) => {
                 console.log(response.data);
                 setEmployee(response.data);
+                // send data to store 
                 dispatch(getEmpById(response.data));
             })
             .catch(err => console.error(err));
@@ -55,3 +60,4 @@ const Employee = () => {
     );
 };
 export default Employee;
+

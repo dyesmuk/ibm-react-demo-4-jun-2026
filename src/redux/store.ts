@@ -1,7 +1,14 @@
-import { configureStore, } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import empReducer from './empSlice';
 
+// createStore();
+
 console.log('1. store configured');
+
+// store = configureStore({ 
+//     reducer : {}
+// });
+
 const store = configureStore({
     reducer: {
         emp: empReducer

@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// slice = createSlice({name, intitalState, reducers});
+
+
 console.log('empSlice');
+
 const EmpSlice = createSlice(
     {
         name: 'emp',
@@ -8,7 +12,8 @@ const EmpSlice = createSlice(
             empData: {
                 id: 1,
                 name: 'Sonu'
-            }
+            },
+            allEmpData: []
         },
         reducers: {
             getEmpById: (state, action) => {
@@ -19,11 +24,10 @@ const EmpSlice = createSlice(
                 console.log(state);
                 state.empData = action.payload;
             }
-
-
         }
     }
 );
 
 export const { getEmpById, getAllEmps } = EmpSlice.actions;
+
 export default EmpSlice.reducer;
