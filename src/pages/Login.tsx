@@ -33,7 +33,7 @@ const Login = () => {
                 setMessage('Login successful!');
                 console.log(response.data);
                 login(); // step 4 here 
-                navigate('/employees'); // this 
+                navigate('/employeeslist'); // this 
             } else {
                 setMessage('Invalid credentials.');
             }

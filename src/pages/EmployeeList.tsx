@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getAllEmps } from '../redux/empSlice';
 import { type RootState } from '../redux/store';
 import type { EmployeeType } from "../models/employee.model";
-import { useState } from "react";
+import { Link } from "react-router";
 
 const EmployeeList = () => {
 
     const dispatch = useDispatch();
-    const [emps, setEmps] = useState<EmployeeType[]>([]);
 
     const empList: EmployeeType[] = useSelector((state: RootState) => { return state.emp.allEmpData; });
+
     console.log(empList);
 
     const loadEmployees = async (evt) => {
@@ -18,10 +18,8 @@ const EmployeeList = () => {
         evt.preventDefault();
         try {
             const response = await getAllEmployees();
-            const emps = response.data.data;
-            dispatch(getAllEmps(emps));
-            setEmps(emps);
-            console.log(emps.data);
+            console.log(response.data.data);
+            dispatch(getAllEmps(response.data.data));
         }
         catch (error) {
             console.error(error);
@@ -34,34 +32,25 @@ const EmployeeList = () => {
             <>
                 <button onClick={loadEmployees}>Load Employees List</button>
             </>
-
             <>
                 <h3>List of the employees:</h3>
-                {emps && emps.length > 0 ? (
+                {empList && empList.length > 0 ? (
                     <>
-                        <h3>List of employees: ({emps.length})</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Designation</th>
-                                    <th>Department</th>
-                                    <th>Role</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {emps.map((emp: EmployeeType, index: number) => (
-                                    <tr key={emp._id}>
-                                        <td>{index + 1}</td>
-                                        <td>{emp.firstName} {emp.lastName}</td>
-                                        <td>{emp.email}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                        <h3>List of employees: ({empList.length})</h3>
+                        <>
+                            <div>
+                                <span>#</span>
+                                <span>First Name</span>
+                                <span>Last Name</span>
+                            </div>
+                            {empList.map((emp: EmployeeType, index: number) => (
+                                <div key={emp._id}>
+                                    <span>{index + 1}</span>
+                                    <span>{emp.firstName} {emp.lastName}</span>
+                                    <Link to={`/employees/${emp._id}`}>{emp.firstName} {emp.lastName}</Link>
+                                </div>
+                            ))}
+                        </>
                     </>
                 ) : (
                     <p>No employees loaded. Click the button above.</p>
