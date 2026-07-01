@@ -1,15 +1,20 @@
 import './App.css';
 import AppRoutes from "./routes/appRoutes";
 import AuthProvider from './auth/AuthProvider';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 const App = () => {
 
-  console.log('2. context provided to app component');
+  console.log('2. store provided to the app');
   return (
     <>
-      <AuthProvider>
-        <AppRoutes />
-      </AuthProvider>
+      <Provider store={store}>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+
+      </Provider>
     </>
   );
 };

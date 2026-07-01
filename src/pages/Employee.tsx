@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import type { EmployeeType } from "../models/employee.model";
 import { getEmployeeById } from "../services/employee.service";
+import { useSelector, useDispatch } from 'react-redux'
+import { getEmpById } from '../redux/empSlice';
+import { type RootState } from '../redux/store';
 
 const Employee = () => {
+
+    const dispatch = useDispatch();
+    const dataFromStore = useSelector((state: RootState) => { return state.emp.empData; });
+    console.log(dataFromStore);
 
     const [employee, setEmployee] = useState<EmployeeType>();
     const userId: number = Math.floor(Math.random() * 10) + 1;
@@ -13,6 +20,7 @@ const Employee = () => {
             .then((response: any) => {
                 console.log(response.data);
                 setEmployee(response.data);
+                dispatch(getEmpById(response.data));
             })
             .catch(err => console.error(err));
     }, []);
@@ -21,6 +29,11 @@ const Employee = () => {
         <>
             <h1>Employee Component</h1>
             <p>This is employee component.</p>
+            <>
+                <h3>Data from store</h3>
+                <p>{dataFromStore.id} {dataFromStore.name} </p>
+            </>
+            <h3>Data</h3>
             <>{employee && (<>
                 <p>Id: {employee.id}</p>
                 <p>Name: {employee.name}</p>
