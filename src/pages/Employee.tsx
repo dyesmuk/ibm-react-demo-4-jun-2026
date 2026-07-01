@@ -42,14 +42,11 @@ const Employee = () => {
             <h1>Employee Component</h1>
             <p>This is employee component.</p>
             <>
+            <p>Sample: 6a44b9534f9ff7e746643008</p>
                 <form onSubmit={getEmp}>
                     <input type="text" name="firstName" value={employeeId} onChange={handleInput} autoFocus placeholder="Please enter employee id" />
                     <button type="submit">Find Employee</button>
                 </form>
-            </>
-            <>
-                <h3>Data from store</h3>
-                <p>{dataFromStore.id} {dataFromStore.firstName} </p>
             </>
             <h3>Data</h3>
             <>{employee && (<>

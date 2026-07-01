@@ -25,7 +25,7 @@ const EmpSlice = createSlice(
             },
             getAllEmps: (state, action) => {
                 console.log(state);
-                state.empData = action.payload;
+                state.allEmpData = action.payload;
             }
         }
     }
