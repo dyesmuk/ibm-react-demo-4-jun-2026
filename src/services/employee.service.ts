@@ -8,5 +8,10 @@ export const getEmployeeById = async (id) => {
     return await axios.get(`${apiUrl}/${id}`);
 };
 
+export const getAllEmployees = async () => {
+    console.log('getAllEmployees');
+    return await axios.get(`${apiUrl}`);
+};
+
 // other functions 
 

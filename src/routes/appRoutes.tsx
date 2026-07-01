@@ -9,6 +9,7 @@ import Page404 from "../pages/Page404";
 import AuthContext from "../context/AuthContextType";
 import Parent from "../pages/Parent";
 import Employee from "../pages/Employee";
+import EmployeeList from "../pages/EmployeeList";
 
 const AppRoutes = () => {
 
@@ -26,6 +27,9 @@ const AppRoutes = () => {
                 />
                 <Route
                     path="/employees" element={isLoggedIn ? <Employee /> : <Navigate to="/login" replace />}
+                />
+                <Route
+                    path="/employeeslist" element={isLoggedIn ? <EmployeeList /> : <Navigate to="/login" replace />}
                 />
                 <Route
                     path="/parent" element={isLoggedIn ? <Parent /> : <Navigate to="/login" replace />}

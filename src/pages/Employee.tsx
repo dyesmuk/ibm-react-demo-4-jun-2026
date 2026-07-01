@@ -17,38 +17,47 @@ const Employee = () => {
 
     const [employee, setEmployee] = useState<EmployeeType>();
     // const userId: number = Math.floor(Math.random() * 10) + 1;
-    const [employeeId, serEmployeeId] = useState('6a3c74fd111c607a29ce5e72');
+    const [employeeId, setEmployeeId] = useState('');
 
+    useEffect(() => { console.log('useEffect'); }, []);
 
+    const handleInput = (evt) => {
+        console.log(evt.target);
+        setEmployeeId(evt.target.value);
+    };
 
-    useEffect(() => {
-        console.log('useEffect');
-        serEmployeeId('6a3c74fd111c607a29ce5e72');
+    const getEmp = (evt) => {
+        evt.preventDefault();
         getEmployeeById(employeeId)
             .then((response: any) => {
                 console.log(response.data);
                 setEmployee(response.data);
-                // send data to store 
                 dispatch(getEmpById(response.data));
+                setEmployeeId('');
             })
             .catch(err => console.error(err));
-    }, []);
-
+    };
     return (
         <>
             <h1>Employee Component</h1>
             <p>This is employee component.</p>
+            <>
+                <form onSubmit={getEmp}>
+                    <input type="text" name="firstName" value={employeeId} onChange={handleInput} autoFocus placeholder="Please enter employee id" />
+                    <button type="submit">Find Employee</button>
+                </form>
+            </>
             <>
                 <h3>Data from store</h3>
                 <p>{dataFromStore.id} {dataFromStore.firstName} </p>
             </>
             <h3>Data</h3>
             <>{employee && (<>
-                <p>Id: {employee.id}</p>
-                <p>First Name: {employee.firstName}</p>
-                <p>last Name: {employee.lastName}</p>
-                <p>Email: {employee.email}</p>
-                <p>Salary: {employee.salary}</p>
+                <p>Id: {dataFromStore.id}</p>
+                <p>First Name: {dataFromStore.firstName}</p>
+                <p>last Name: {dataFromStore.lastName}</p>
+                <p>Email: {dataFromStore.email}</p>
+                <p>Salary: {dataFromStore.salary}</p>
             </>)} </>
         </>
     );

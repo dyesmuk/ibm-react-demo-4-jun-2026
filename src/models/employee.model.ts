@@ -1,6 +1,7 @@
+import type { Key } from "react";
 
 export interface EmployeeType {
-    id: number;
+    _id: Key;
     firstName: string;
     lastName: string;
     email: string;
