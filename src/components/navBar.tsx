@@ -1,11 +1,16 @@
 import { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import AuthContext from "../context/AuthContextType";
 
-console.log('6. context called to navbar.');
 const NavBar = () => {
+    const { isLoggedIn, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const { isLoggedIn } = useContext(AuthContext);
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
+
     return (
         <>
             <p>{isLoggedIn ? 'logged in' : 'logged out'}</p>
@@ -16,6 +21,8 @@ const NavBar = () => {
                 {isLoggedIn && <Link to='/employeeslist'>EmployeesList</Link>}
                 {!isLoggedIn && <Link to='/login'>Login</Link>}
                 {!isLoggedIn && <Link to='/register'>Register</Link>}
+                {isLoggedIn && <button onClick={handleLogout}>Logout</button>}
+
             </nav>
         </>
     );

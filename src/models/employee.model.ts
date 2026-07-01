@@ -6,5 +6,6 @@ export interface EmployeeType {
     lastName: string;
     email: string;
     salary: number;
+    password: string;
 }
 
