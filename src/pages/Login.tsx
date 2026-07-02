@@ -33,7 +33,7 @@ const Login = () => {
         try {
             const response: any = await loginUser(user);
             if (response.data?.token) {
-                console.log('Login successful');
+                console.log(response.data);
                 setMessage('Login successful, going to Employee list...');
                 login(response.data.employee, response.data.token);
                 // setTimeout(() => {

@@ -10,6 +10,7 @@ const AuthProvider = ({ children }: any) => {
 
     const login = (employeeData: any, token: string) => {
         localStorage.setItem('token', token);
+        // localStorage.
         localStorage.setItem('employee', JSON.stringify(employeeData));
         setEmployee(employeeData);
         setIsLoggedIn(true);
