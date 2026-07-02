@@ -54,7 +54,7 @@ const Login = () => {
 
     return (
         <>
-            <h1>Login Component</h1>
+            <h1>Login Component (Controlled Form) </h1>
             <p>This is login component.</p>
 
             <form onSubmit={submitInput}>
@@ -67,7 +67,6 @@ const Login = () => {
                     placeholder="Enter your email"
                 />
                 <br />
-
                 <input
                     type="password"
                     name="password"

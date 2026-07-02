@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import AuthContext from "../context/AuthContextType";
+// import toggleTheme from "./toggleTheme";
 
 const NavBar = () => {
     const { isLoggedIn, logout } = useContext(AuthContext);
@@ -22,6 +23,7 @@ const NavBar = () => {
                 {!isLoggedIn && <Link to='/login'>Login</Link>}
                 {!isLoggedIn && <Link to='/register'>Register</Link>}
                 {isLoggedIn && <button onClick={handleLogout}>Logout</button>}
+                {/* <button onClick={toggleTheme}>Color Mode</button> */}
 
             </nav>
         </>

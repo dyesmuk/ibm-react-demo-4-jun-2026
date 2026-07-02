@@ -9,17 +9,19 @@ const App = () => {
   console.log('2. store provided to the app');
   return (
     <>
-      <Provider store={store}>
-        <AuthProvider>
-          <AppRoutes />
-        </AuthProvider>
-
-      </Provider>
+      <main>
+        <Provider store={store}>
+          <AuthProvider>
+            <AppRoutes />
+          </AuthProvider>
+        </Provider>
+      </main>
     </>
   );
 };
 
 export default App;
+
 // import './App.css'
 // import AppRoutes from "./routes/appRoutes";
 
