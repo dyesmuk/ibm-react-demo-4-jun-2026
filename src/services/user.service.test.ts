@@ -1,18 +1,60 @@
+import '@testing-library/jest-dom';
+import api from './api.service';
+import { loginUser } from './user.service';
+
+jest.mock('./api.service');
+
+const mockedApi = api as jest.Mocked<typeof api>;
+
+describe('user.service', () => {
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('loginUser runs the code', async () => {
+        const credentials = { email: 'trainee@example.com', password: 'secret123' };
+
+        mockedApi.post.mockResolvedValue({ data: { token: 'jwt-abc', employee: { id: 1 } } });
+
+        const result = await loginUser(credentials);
+        expect(mockedApi.post).toHaveBeenCalledTimes(1);
+        expect(mockedApi.post).toHaveBeenCalledWith('/api/auth/login', credentials);
+        expect(result.data.token).toBe('jwt-abc');
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+// import '@testing-library/jest-dom';
+// import { loginUser } from './user.service';
 
 
 
 // describe('', () => {
 
-//     it('', () => {
-//         // 
-//         expect().toBe();
+//     it('test login status', async () => {
+//         const user = {email: 'aditya.k@ems.local', password: 'pass1234'};
+//         const response = await loginUser(user);
+//         console.log(response);
+//         expect(response.status).toBe(200);
 //     });
 
-//     it('', () => {
-//         // 
-//         expect().not.toBe();
-//     });
-//     test('', () => {});
+//     //     it('test login object', async () => {
+//     //     const user = {email: 'aditya.k@ems.local', password: 'pass1234'};
+//     //     const response = await loginUser(user);
+//     //     console.log(response.data.email);
+//     //     expect(response.data.email).toBe('aditya.k@ems.local');
+//     // });
 
 // });
 
@@ -49,29 +91,6 @@
 
 
 
-// // import '@testing-library/jest-dom';
-// // import api from './api.service';
-// // import { loginUser } from './user.service';
-
-// // jest.mock('./api.service');
-
-// // const mockedApi = api as jest.Mocked<typeof api>;
-
-// // describe('user.service', () => {
-    
-// //     beforeEach(() => {
-// //         jest.clearAllMocks();
-// //     });
-
-// //     it('loginUser runs the code', async () => {
-// //         const credentials = { email: 'trainee@example.com', password: 'secret123' };
-// //         mockedApi.post.mockResolvedValue({ data: { token: 'jwt-abc', employee: { id: 1 } } });
-// //         const result = await loginUser(credentials);
-// //         expect(mockedApi.post).toHaveBeenCalledTimes(1);
-// //         expect(mockedApi.post).toHaveBeenCalledWith('/api/auth/login', credentials);
-// //         expect(result.data.token).toBe('jwt-abc');
-// //     });
-// // });
 
 
 // // // import '@testing-library/jest-dom';

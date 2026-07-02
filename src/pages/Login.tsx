@@ -24,20 +24,18 @@ const Login = () => {
         }));
     };
 
-    const validateInput = () => {
-        if (user.email.trim() && user.password.trim())
-            return true;
-        else if (user.password.trim().length > 4 && user.password.trim().length < 40)
-            return true;
-        return false;
+    // const validateInput = () => {
+    //     if (user.email.trim() && user.password.trim())
+    //         return true;
+    //     else if (user.password.trim().length > 4 && user.password.trim().length < 40)
+    //         return true;
+    //     return false;
 
-    };
+    // };
 
     const submitInput = async (evt: any) => {
         evt.preventDefault();
-
-        validateInput(); // validation logic 
-
+        // validateInput(); // validation logic 
         try {
             await login(user);
             setMessage('Login successful, going to Employee list...');
@@ -430,5 +428,6 @@ export default Login;
 // //     );
 // // };
 // // export default Login;
+
 
 
