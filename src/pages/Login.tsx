@@ -1,17 +1,24 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router"; // this 
 import AuthContext from "../context/AuthContextType";
 import { loginUser } from '../services/user.service';
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext);
+    const { login, isLoggedIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
     const [user, setUser] = useState({ email: '', password: '' });
 
     const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        console.log(isLoggedIn);
+        if (isLoggedIn) {
+            navigate('/employeeslist', { replace: true });
+        }
+    }, [isLoggedIn, navigate]);
 
     const handleInput = (evt: any) => {
         const { name, value } = evt.target;
@@ -26,12 +33,13 @@ const Login = () => {
         try {
             const response: any = await loginUser(user);
             if (response.data?.token) {
+                console.log('Login successful');
                 setMessage('Login successful, going to Employee list...');
                 login(response.data.employee, response.data.token);
-                setTimeout(() => {
-                    setMessage('');
-                    navigate('/employeeslist');
-                }, 2000);
+                // setTimeout(() => {
+                setMessage('');
+                navigate('/employeeslist');
+                // }, 2000);
             } else {
                 setMessage('Invalid credentials.');
             }
@@ -328,4 +336,5 @@ export default Login;
 //     );
 // };
 // export default Login;
+
 

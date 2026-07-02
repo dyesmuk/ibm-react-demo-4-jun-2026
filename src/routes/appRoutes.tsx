@@ -24,7 +24,7 @@ const AppRoutes = () => {
                 <Route path="/home" element={<Home />} />
                 <Route
                     path="/login"
-                    element={isLoggedIn ? <Navigate to="/employees" replace /> : <Login />}
+                    element={isLoggedIn ? <Navigate to="/home" replace /> : <Login />}
                 />
                 <Route
                     path="/employees" element={isLoggedIn ? <Employee /> : <Navigate to="/login" replace />}

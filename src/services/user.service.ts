@@ -1,19 +1,22 @@
-import axios from "axios";
-// import type { EmployeeType } from "../models/employee.model";
 
-// const apiUrl = 'https://jsonplaceholder.typicode.com/users/?username=';
+import api from "./api.service";
 
-const apiUrl = 'http://localhost:3000';
+export const getEmployeeById = async (id) => {
+    console.log(id);
+    return await api.get(`/api/employees/${id}`);
+};
+
+
 
 export const loginUser = async (user) => {
-    return await axios.post(`${apiUrl}/api/auth/login`, user);
+    return await api.post('/api/auth/login', user);
 };
 
 export const register = async (user) => {
-    return await axios.post(`${apiUrl}/api/auth/register`, user);
+    return await api.post('/api/auth/register', user);
 };
 
 export const logout = async () => {
-    return await axios.post(`${apiUrl}/api/auth/logout`);
+    return await api.post('/api/auth/logout');
 };
 
