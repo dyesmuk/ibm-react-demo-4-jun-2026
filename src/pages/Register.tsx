@@ -20,6 +20,10 @@ const Register = () => {
             email: emailRef.current?.value,
             password: passwordRef.current?.value
         };
+        if (!employee.firstName || !employee.lastName ) {
+            console.log('All fields are required.');
+            return;
+        }
 
         try {
             const response = await registerUser(employee);
