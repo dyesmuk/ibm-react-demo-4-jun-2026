@@ -1,20 +1,47 @@
 import { useState } from "react";
+import "./Home.css";
+
 const Home = () => {
-    const [salary, setSalary] = useState(10.25);
-    const increaseSalary = () => {
-        console.log(salary);
-        setSalary(salary * 2);
-    };
+
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <>
             <h1>Home Component</h1>
             <p>This is home component.</p>
-            <h3>Salary: {salary}</h3>
-            <button onClick={increaseSalary} >Increase Salary!</button>
+            <h3>Animation in React</h3>
+
+            <button onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? 'Close Panel' : 'Open Panel'}
+            </button>
+
+            <div className={isOpen ? 'panel open' : 'panel'}>
+                <p>This panel slides open and closed using a CSS transition.</p>
+                <p>The animation is purely CSS — React only toggles the class.</p>
+            </div>
         </>
     );
 };
+
 export default Home;
+// import { useState } from "react";
+// const Home = () => {
+//     const [salary, setSalary] = useState(10.25);
+//     const increaseSalary = () => {
+//         console.log(salary);
+//         setSalary(salary * 2);
+//     };
+//     return (
+//         <>
+//             <h1>Home Component</h1>
+//             <p>This is home component.</p>
+//             <h3>Salary: {salary}</h3>
+//             <button onClick={increaseSalary} >Increase Salary!</button>
+//         </>
+//     );
+// };
+// export default Home;
+
 // // solution - useState
 
 

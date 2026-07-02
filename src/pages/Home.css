@@ -1,0 +1,12 @@
+.panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease;
+    background-color: #f0f0f0;
+    padding: 0 16px;
+    border-radius: 6px;
+}
+
+.panel.open {
+    max-height: 200px;
+}
